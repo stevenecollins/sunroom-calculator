@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Get Your Sunroom Quote - The Sunroom Experts</title>
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="css/styles.css" />
+	</head>
+	<body>
+		<div id="app" class="container">
+			<!-- Screen 1: Landing Page -->
+			<div id="screen-landing" class="screen active">
+				<h1>2-Step Quick Quote</h1>
+
+				<div class="value-props">
+					<div class="value-grid">
+						<!-- Grid Item 1: Glass Image -->
+						<div class="grid-item image-item" data-mobile-order="1">
+							<img
+								src="https://via.placeholder.com/300x216/E8E0D6/255E65?text=Glass+Sunroom"
+								alt="4 Season Glass Sunroom"
+							/>
+							<span class="room-label">4 Season Glass</span>
+						</div>
+
+						<!-- Grid Item 2: Text -->
+						<div class="grid-item text-item" data-mobile-order="2">
+							<p>
+								Tired of calling multiple companies for sunroom quotes, just
+								to not be able to get anyone on the phone
+							</p>
+						</div>
+
+						<!-- Grid Item 3: Eze Breeze Image -->
+						<div class="grid-item image-item" data-mobile-order="3">
+							<img src="https://via.placeholder.com/300x216/E8E0D6/255E65?text=Eze+Breeze" alt="3 Season Eze Breeze" />
+							<span class="room-label">3 Season Eze Breeze</span>
+						</div>
+
+						<!-- Grid Item 4: Text -->
+						<div class="grid-item text-item" data-mobile-order="4">
+							<p>Waiting around all day for no one to show up?</p>
+						</div>
+
+						<!-- Grid Item 5: Screen Room Image -->
+						<div class="grid-item image-item" data-mobile-order="5">
+							<img src="https://via.placeholder.com/300x216/E8E0D6/255E65?text=Screen+Room" alt="Screen Only Sunroom" />
+							<span class="room-label">Screen Only Sunroom</span>
+						</div>
+						
+						<!-- Grid Item 6: Text -->
+						<div class="grid-item text-item" data-mobile-order="6">
+							<p>
+								Just want an idea of cost to determine your project's
+								viability?
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<button class="cta-button primary" onclick="showRoomSelection()">
+					Start Your Quote →
+				</button>
+
+				<div class="trust-badges">
+					<div class="badge">
+						<span class="icon">🏭</span>
+						<span>Factory-Trained Installers</span>
+					</div>
+					<div class="badge">
+						<span class="icon">📋</span>
+						<span>Licensed & Insured NC Contractors</span>
+					</div>
+					<div class="badge">
+						<span class="icon">🛡️</span>
+						<span>10-Year Warranty on All Work</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- 
+			Screen 2: Room Type & Calculator ----------------------------------------
+			-->
+			<div id="screen-calculator" class="screen">
+				<h2>Step 1: Calculate Your Sunroom Cost</h2>
+				<p class="subtitle">
+					After selecting the room type, Simply Measure the length of each wall
+					where your sunroom will be installed.
+				</p>
+
+				<!-- Room Type Selection -->
+				<div class="room-types">
+					<div
+						class="room-card"
+						onclick="selectRoomType('screen', 2800, 4000, 110, 130)"
+					>
+						<h3>Screen Only</h3>
+						<p class="price">$2,800 - $4,000</p>
+						<p class="desc">Perfect for bug-free outdoor enjoyment</p>
+					</div>
+
+					<div
+						class="room-card"
+						onclick="selectRoomType('3season', 6000, 10000, 200, 300)"
+					>
+						<h3>3-Season Eze Breeze</h3>
+						<p class="price">$6,000 - $10,000</p>
+						<p class="desc">Enjoy spring... and fall</p>
+					</div>
+
+					<div
+						class="room-card"
+						onclick="selectRoomType('glass', 12000, 20000, 600, 800)"
+					>
+						<h3>Glass</h3>
+						<p class="price">$12,000 - $20,000</p>
+						<p class="desc">Year-round comfort and enjoyment</p>
+					</div>
+				</div>
+
+				<!-- Calculator Section -->
+				<div id="calculator-section" class="hidden">
+					<div class="wall-diagram-container">
+						<!-- Top Wall Input -->
+						<div class="wall-input-top">
+							<label>↓ Wall 2 Length (feet)</label>
+							<input
+								type="number"
+								id="wall2"
+								placeholder="12"
+								min="0"
+								step="0.5"
+								onchange="calculatePrice()"
+								oninput="calculatePrice()"
+							/>
+						</div>
+
+						<div class="wall-diagram-middle">
+							<!-- Left Wall Input -->
+							<div class="wall-input-left">
+								<label>Wall 2 Length (feet) →</label>
+								<input
+									type="number"
+									id="wall1"
+									placeholder="12"
+									min="0"
+									step="0.5"
+									onchange="calculatePrice()"
+									oninput="calculatePrice()"
+								/>
+							</div>
+
+							<!-- Porch Box (Center) -->
+							<div class="porch-box">
+								<div class="porch-walls">
+									<div class="wall wall-top"></div>
+									<div class="wall wall-left"></div>
+									<div class="wall wall-right"></div>
+								</div>
+								<div class="porch-content">
+									<h4>Porch</h4>
+									<p id="total-feet">Total Linear Feet: 0 ft</p>
+								</div>
+								<div class="house-attachment">
+									<span>Attached to House</span>
+								</div>
+							</div>
+
+							<!-- Right Wall Input -->
+							<div class="wall-input-right">
+								<label>← Wall 3 Length (feet)</label>
+								<input
+									type="number"
+									id="wall3"
+									placeholder="12"
+									min="0"
+									step="0.5"
+									onchange="calculatePrice()"
+									oninput="calculatePrice()"
+								/>
+							</div>
+						</div>
+					</div>
+
+					<div id="price-display" class="price-display hidden">
+						<h3>Your Instant Price Range:</h3>
+						<p class="price-range">$0 - $0</p>
+						<p class="note">
+							Note: These are estimated ranges based on standard installations.
+						</p>
+					</div>
+
+					<div class="button-group">
+						<button class="back-button" onclick="showLanding()">
+							← Back to Start
+						</button>
+						<button
+							id="continue-btn"
+							class="cta-button hidden"
+							onclick="showContactForm()"
+						>
+							Get My Official Estimate →
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- 
+Screen 3: Contact Form -------------------------------------------
+-->
+			<div id="screen-contact" class="screen">
+				<h2>Step 2: Schedule Your Free Estimate</h2>
+				<p class="subtitle">
+					We'll contact you within 24 hours to schedule your on-site
+					consultation
+				</p>
+
+				<div class="form-layout">
+					<div class="form-section">
+						<h3>Tell us about your project</h3>
+
+						<form id="quote-form">
+							<input
+								type="text"
+								id="fullName"
+								placeholder="Full Name*"
+								required
+							/>
+							<input
+								type="text"
+								id="address"
+								placeholder="Home address*"
+								required
+							/>
+
+							<div class="address-row">
+								<input type="text" id="city" placeholder="City" required />
+								<input
+									type="text"
+									id="state"
+									placeholder="State"
+									maxlength="2"
+									required
+								/>
+								<input type="text" id="zip" placeholder="Zip*" required />
+							</div>
+
+							<input
+								type="tel"
+								id="phone"
+								placeholder="Best Phone Number*"
+								required
+							/>
+							<input
+								type="email"
+								id="email"
+								placeholder="Best Email Address*"
+								required
+							/>
+
+							<textarea
+								id="project-details"
+								placeholder="Tell us about your sunroom project"
+								rows="4"
+							></textarea>
+
+							<label class="timeline-label"
+								>What's your timeline? Any specific features you're
+								considering?</label
+							>
+							<input
+								type="text"
+								id="timeline"
+								placeholder="Timeline (optional)"
+							/>
+						</form>
+					</div>
+
+					<div class="summary-section">
+						<div class="price-summary">
+							<h3>Your Estimated Range:</h3>
+							<p class="final-price-range">$0 - $0</p>
+							<p>Let's make it official with a detailed, no-obligation quote</p>
+						</div>
+
+						<div class="guarantees">
+							<p>✓ No Pressure Sales Ever!</p>
+							<p>✓ 24-Hour Response Guaranteed</p>
+							<p>✓ Written Estimates Always Free</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="button-group">
+					<button class="back-button" onclick="showCalculator()">
+						← Back to Calculations
+					</button>
+					<button class="cta-button" onclick="submitForm()">
+						Send My Quote Request →
+					</button>
+				</div>
+			</div>
+
+			<!-- 
+Screen 4: Thank You -------------------------
+-->
+			<div id="screen-thankyou" class="screen">
+				<div class="thank-you-content">
+					<h1>
+						Thank You! We're Excited to Help You Create Your Perfect Sunroom
+					</h1>
+
+					<p class="confirmation">
+						Your quote request has been received, and our team is already
+						reviewing your project details.
+					</p>
+
+					<div class="next-steps">
+						<h3>What Happens Next:</h3>
+						<p>
+							Within the next 24 hours, one of our sunroom specialists will call
+							you to:
+						</p>
+						<ul>
+							<li>Discuss your vision and answer any questions</li>
+							<li>
+								Schedule a convenient time for your free in-home consultation
+							</li>
+							<li>Review design options that match your budget and style</li>
+						</ul>
+					</div>
+
+					<div class="contact-box">
+						<p>
+							Questions? Call us directly at <strong>(910) 555-0000</strong>
+						</p>
+					</div>
+				</div>
+			</div>
+			<!-- More screens will go here -->
+		</div>
+
+		<script src="js/app.js"></script>
+	</body>
+</html>
