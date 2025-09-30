@@ -12,7 +12,7 @@
    
    Brand Colors:
    B-01 Brand: #2D5E5E
-   B-02 Brand Accent: #F8F1EC
+   B-02 Brand Accent: #F5F1EC
    B-03 Brand Alt: #E6D7CC
    B-04 Brand Alt Accent: #9BA3A3
    ============================================== */
@@ -26,7 +26,7 @@
 body {
 	font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 		"Helvetica Neue", Arial, sans-serif;
-	background-color: #f0f4ec;
+	background-color: #f5f1ec;
 	color: #263336;
 	line-height: 1.6;
 	min-height: 100vh;
@@ -80,7 +80,7 @@ body {
 	font-family: "Poppins", sans-serif;
 	font-size: 2rem;
 	color: #263336;
-	margin-bottom: 30px;
+	margin-bottom: 50px;
 	font-weight: 700;
 	line-height: 1.2;
 }
@@ -103,7 +103,7 @@ body {
 	min-height: 180px;
 	border-radius: 12px;
 	overflow: hidden;
-	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+	/* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); */
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -127,19 +127,26 @@ body {
 
 /* Room Label - Responsive */
 .room-label {
-	font-family: "Inter", sans-serif;
+	font-family: "Poppiins", sans-serif;
 	position: absolute;
 	bottom: 12px;
 	left: 12px;
-	right: 12px;
-	background: rgba(255, 255, 255, 0.9);
+	right: auto; /* Not full width */
+	background: rgba(255, 255, 255, 0.8); /* Keep at 80% */
 	color: #263336;
-	padding: 6px 10px;
+	padding: 6px 12px;
 	border-radius: 6px;
-	font-size: 0.85rem;
+	font-size: 0.7rem;
 	font-weight: 600;
 	text-align: center;
 	letter-spacing: 0.3px;
+	white-space: nowrap; /* Keep text on one line */
+}
+
+/* Test positioning for first image */
+.grid-item[data-mobile-order="1"] .room-label {
+	left: 12px;
+	right: auto;
 }
 
 /* Text Items - Mobile */
@@ -153,10 +160,12 @@ body {
 }
 
 .text-item p {
-	font-size: 1rem;
+	font-family: "Poppins", sans-serif;
+	font-size: 1.2rem;
+	font-weight: 600;
 	color: #263336;
 	line-height: 1.5;
-	text-align: center;
+	text-align: left;
 	max-width: 90%;
 }
 
@@ -165,9 +174,29 @@ body {
 	display: flex;
 	flex-direction: column;
 	gap: 15px;
-	margin-top: 30px;
+	margin-top: 40px;
 	padding-top: 30px;
 	border-top: 1px solid #e8e0d5;
+}
+
+/* Pricing Tagline Section - Mobile First */
+.pricing-tagline-section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+	margin: 40px auto;
+	max-width: 100%;
+}
+
+.pricing-tagline {
+	font-family: "Poppins", sans-serif;
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: #2d5e5e;
+	text-align: center;
+	margin: 0;
+	line-height: 1.4;
 }
 
 .badge {
@@ -584,7 +613,7 @@ body {
 
 .next-steps {
 	text-align: left;
-	background: #f8f1ec;
+	background: #f5f1ec;
 	padding: 30px;
 	border-radius: 8px;
 	margin-bottom: 30px;
@@ -700,31 +729,72 @@ body {
 }
 
 /* ==============================================
-   TABLET LAYOUT (768px and up) - 2x3 Grid
+   SHARED TABLET & DESKTOP STYLES (768px and up)
    ============================================== */
 @media (min-width: 768px) {
+	/* Typography scaling */
+	#screen-landing h1 {
+		font-size: 2.8rem;
+		margin-bottom: 40px;
+	}
+
+	/* Trust badges in a row */
+	.trust-badges {
+		flex-direction: row;
+		justify-content: center;
+		gap: 30px;
+		margin-top: 40px;
+		padding-top: 40px;
+	}
+
+	.badge {
+		font-size: 0.95rem;
+		padding: 0;
+	}
+
+	.badge .icon {
+		font-size: 1.4rem;
+	}
+
+	/* Pricing tagline section - horizontal layout */
+	.pricing-tagline-section {
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		gap: 30px;
+		margin: 50px auto;
+	}
+
+	.pricing-tagline {
+		font-size: 1.3rem;
+		text-align: left;
+		max-width: 350px;
+		line-height: 1.3;
+	}
+}
+
+/* ==============================================
+   TABLET LAYOUT (768px to 1170px) - 2x3 Grid
+   ============================================== */
+@media (min-width: 768px) and (max-width: 1170px) {
 	/* Adjust container for tablet */
 	.container {
 		max-width: 900px;
 		padding: 30px 25px;
 	}
 
-	/* Typography for tablet */
-	#screen-landing h1 {
-		font-size: 2.8rem;
-		margin-bottom: 40px;
-	}
-
-	/* Value Grid - 2 columns for tablet */
+	/* Value Grid - Fixed width, centered */
 	.value-grid {
-		gap: 20px;
-		margin-bottom: 45px;
+		max-width: 684px; /* Exact width: 300 + 40 + 344 */
+		margin: 0 auto 45px; /* Center the grid */
+		gap: 40px;
+		justify-content: center;
+		align-items: flex-start;
 	}
 
-	/* Grid items - 2 per row */
+	/* Grid items - Fixed widths, no grow/shrink */
 	.grid-item {
-		flex: 1 1 calc(50% - 10px); /* 2 columns with gap */
-		min-height: 200px;
+		flex: 0 0 auto; /* Don't grow or shrink */
 	}
 
 	/* Reorder items for tablet layout to match design */
@@ -747,14 +817,19 @@ body {
 		order: 6;
 	} /* "Just want an idea..." text */
 
-	/* Adjust heights for better proportions */
+	/* FIXED WIDTHS - Adaptive design */
 	.image-item {
-		height: 220px;
+		width: 300px; /* Fixed width */
+		height: 200px; /* Fixed height */
 	}
 
 	.text-item {
-		min-height: 220px;
+		width: 344px; /* Fixed width matching design */
+		height: 200px; /* Same height as images */
 		padding: 30px 25px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.text-item p {
@@ -762,113 +837,175 @@ body {
 		line-height: 1.55;
 	}
 
-	/* Room labels slightly larger */
+	/* Room labels - smaller and positioned */
 	.room-label {
-		font-size: 0.9rem;
-		padding: 7px 12px;
-		bottom: 15px;
-		left: 15px;
+		font-size: 0.7rem;
+		padding: 7px 14px;
+	}
+
+	/* Tablet positioning for each room label */
+	/* 4 Season Glass - move to right */
+	.grid-item[data-mobile-order="1"] .room-label {
+		left: auto;
 		right: 15px;
+		bottom: 15px;
+		top: auto;
 	}
-
-	/* Trust badges in a row for tablet */
-	.trust-badges {
-		flex-direction: row;
-		justify-content: center;
-		gap: 30px;
-		margin-top: 40px;
-		padding-top: 40px;
+	
+	/* 3 Season Eze Breeze - stays left */
+	.grid-item[data-mobile-order="3"] .room-label {
+		left: 15px;
+		right: auto;
+		bottom: 15px;
+		top: auto;
 	}
-
-	.badge {
-		font-size: 0.95rem;
-		padding: 0;
-	}
-
-	.badge .icon {
-		font-size: 1.4rem;
+	
+	/* Screen Only Sunroom - move to right and top */
+	.grid-item[data-mobile-order="5"] .room-label {
+		left: auto;
+		right: 15px;
+		bottom: auto;
+		top: 15px;
 	}
 }
 
 /* ==============================================
-   DESKTOP LAYOUT (1024px and up) - 3x2 Grid
+   DESKTOP LAYOUT (1171px and up) - 3x2 Grid
    ============================================== */
-@media (min-width: 1024px) {
+@media (min-width: 1171px) {
 	/* Adjust container for desktop */
 	.container {
 		max-width: 1200px;
+		margin: 0 auto;
 		padding: 40px 20px;
 	}
 
 	/* Typography for desktop */
 	#screen-landing h1 {
 		font-size: 3.5rem;
+		margin-top: 10px;
 		margin-bottom: 50px;
 	}
 
-	/* Value Grid - 3 columns for desktop */
+	/* Value Grid - Fixed width, centered */
 	.value-grid {
-		max-width: 1000px;
-		margin: 0 auto 50px;
+		max-width: 1090px; /* Exact width for desktop layout */
+		margin: 0 auto; /* Remove bottom margin - controlled by pricing section */
+		gap: 40px;
+		justify-content: center;
 	}
 
-	/* Grid items - 3 per row */
+	/* Grid items - Fixed widths, no grow/shrink */
 	.grid-item {
-		flex: 1 1 calc(33.333% - 14px); /* 3 columns with gap */
-		min-height: 216px;
+		flex: 0 0 auto; /* Don't grow or shrink */
 	}
 
-	/* Reorder items for desktop layout to match design */
+	/* Reset order for desktop layout - back to original */
 	.grid-item[data-mobile-order="1"] {
 		order: 1;
-	} /* Glass Image */
+	} /* Glass Image - 300px */
 	.grid-item[data-mobile-order="2"] {
 		order: 2;
-	} /* "Tired of calling..." text */
+	} /* "Tired of calling..." text - 410px */
 	.grid-item[data-mobile-order="3"] {
 		order: 3;
-	} /* Eze Breeze Image - back to position 3 */
+	} /* Eze Breeze Image - 300px */
 	.grid-item[data-mobile-order="4"] {
 		order: 4;
-	} /* "Waiting around..." text - back to position 4 */
+	} /* "Waiting around..." text - 355px */
 	.grid-item[data-mobile-order="5"] {
 		order: 5;
-	} /* Screen Room Image */
+	} /* Screen Room Image - 300px */
 	.grid-item[data-mobile-order="6"] {
 		order: 6;
-	} /* "Just want an idea..." text */
+	} /* "Just want an idea..." text - 355px */
 
-	/* Fixed heights for desktop for perfect alignment */
+	/* FIXED WIDTHS - Images always 300px */
 	.image-item {
-		height: 216px;
+		width: 300px; /* Fixed width */
+		height: 216px; /* Fixed height */
 	}
 
+	/* Different widths for text boxes based on position */
 	.text-item {
-		min-height: 216px;
-		height: 216px;
+		height: 216px; /* Same height as images */
 		padding: 30px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	/* Row 1 center text (position 2) - wider */
+	.grid-item[data-mobile-order="2"] {
+		width: 410px;
+	}
+
+	/* Row 2 side texts (positions 4 and 6) - narrower */
+	.grid-item[data-mobile-order="4"],
+	.grid-item[data-mobile-order="6"] {
+		width: 355px;
 	}
 
 	.text-item p {
 		font-size: 1.15rem;
 		line-height: 1.6;
-		max-width: 100%;
 	}
 
 	/* Room labels for desktop */
 	.room-label {
-		font-size: 0.9rem;
-		padding: 8px 12px;
+		font-size: 0.7rem;
+		padding: 8px 16px;
 		letter-spacing: 0.5px;
+	}
+
+	/* Desktop positioning for each room label */
+	/* 4 Season Glass - move to right */
+	.grid-item[data-mobile-order="1"] .room-label {
+		left: auto;
+		right: 15px;
+		bottom: 15px;
+		top: auto;
+	}
+	
+	/* 3 Season Eze Breeze - stays left */
+	.grid-item[data-mobile-order="3"] .room-label {
+		left: 15px;
+		right: auto;
+		bottom: 15px;
+		top: auto;
+	}
+	
+	/* Screen Only Sunroom - move to top left */
+	.grid-item[data-mobile-order="5"] .room-label {
+		left: 15px;
+		right: auto;
+		bottom: auto;
+		top: 15px;
 	}
 
 	/* Trust badges optimal spacing for desktop */
 	.trust-badges {
+		flex-direction: row;
+		justify-content: center;
 		gap: 40px;
+		margin-top: 60px; /* Exactly 60px below the button */
+		padding-top: 0; /* Remove padding to keep exact 60px spacing */
+		border-top: none; /* Clean look without border on desktop */
 	}
 
 	.badge .icon {
 		font-size: 1.5rem;
+	}
+
+	/* Pricing tagline - single line on desktop */
+	.pricing-tagline-section {
+		margin: 40px auto 0; /* 40px below the value grid, 0 bottom */
+	}
+
+	.pricing-tagline {
+		font-size: 1.4rem;
+		max-width: none;
+		white-space: nowrap;
 	}
 }
 
