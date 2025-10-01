@@ -235,6 +235,7 @@ body {
 	font-weight: 400;
 	line-height: 1.5;
 	padding: 0 10px;
+	max-width: 660px;
 }
 
 /* Room Selection Container */
@@ -261,7 +262,7 @@ body {
 
 .room-card {
 	background: white;
-	border: 3px solid #e8e0d5;
+	border: 3px solid white;
 	border-radius: 12px;
 	padding: 18px;
 	cursor: pointer;
@@ -280,6 +281,7 @@ body {
 	border-color: #2d5e5e;
 	background: #5e8a8a;
 	color: white;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
 .room-card h3 {
@@ -326,6 +328,7 @@ body {
 .wall-diagram-container {
 	margin: 0 auto;
 	position: relative;
+	font-size: .70rem
 }
 
 /* Wall Input Wrappers - Mobile */
@@ -334,12 +337,10 @@ body {
 }
 
 .wall-input-wrapper label {
-	font-family: "Inter", sans-serif;
 	display: block;
 	color: #2d5e5e;
 	font-weight: 600;
-	font-size: 0.85rem;
-	margin-bottom: 6px;
+	margin-bottom: 4px;
 }
 
 .wall-input-wrapper input {
@@ -379,10 +380,8 @@ body {
 /* Wall Diagram Row - Mobile */
 .wall-diagram-row {
 	display: flex;
-	/* align-items: center; */
 	justify-content: center;
 	gap: 10px;
-	/* margin: 20px 0; */
 }
 
 /* Left Wall Input */
@@ -394,11 +393,9 @@ body {
 
 .wall-input-left label {
 	text-align: right;
-	/* font-size: 0.75rem; */
 }
 
 .wall-input-left input {
-	/* width: 80px; */
 }
 
 /* Right Wall Input */
@@ -410,11 +407,9 @@ body {
 
 .wall-input-right label {
 	text-align: left;
-	/* font-size: 0.75rem; */
 }
 
 .wall-input-right input {
-	/* width: 80px; */
 }
 
 /* Porch Box Visual - Mobile */
@@ -424,7 +419,6 @@ body {
 	position: relative;
 	background: #ffffff;
 	border-radius: 8px;
-	/* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); */
 }
 
 .porch-walls {
@@ -463,7 +457,7 @@ body {
 
 .porch-content {
 	position: absolute;
-	top: 37%;
+	top: 40%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	text-align: center;
@@ -495,13 +489,14 @@ body {
 .house-attachment {
 	position: absolute;
 	bottom: 0;
-	left: 0;
-	right: 0;
+	left: 15%;
+	right: 15%;
 	background: #e8e0d5;
 	text-align: center;
 	border-bottom-left-radius: 8px;
 	border-bottom-right-radius: 8px;
 	border-top: 2px dashed #9ba3a3;
+	padding: 4px;
 }
 
 .house-attachment span {
@@ -1147,14 +1142,14 @@ body {
 	#screen-calculator .subtitle {
 		font-size: 1.05rem;
 		margin-bottom: 40px;
-		max-width: 700px;
+		/* max-width: 700px; */
 		margin-left: auto;
 		margin-right: auto;
 	}
 
 	/* Room Selection for Tablet */
 	.room-selection-container {
-		max-width: 700px;
+		/* max-width: 700px; */
 		margin: 0 auto 40px;
 	}
 
@@ -1172,7 +1167,7 @@ body {
 
 	.room-card {
 		flex: 1;
-		max-width: 220px;
+		/* max-width: 220px; */
 		padding: 20px;
 	}
 
@@ -1199,7 +1194,6 @@ body {
 	/* Wall Inputs - Tablet */
 	.wall-input-wrapper label {
 		font-size: 0.95rem;
-		margin-bottom: 8px;
 	}
 
 	.wall-input-wrapper input {
@@ -1216,15 +1210,14 @@ body {
 	/* Wall Diagram Row - Tablet */
 	.wall-diagram-row {
 		gap: 20px;
-		margin: 30px 0;
-		align-items: center;
+		margin: 20px 0 30px;
 	}
 
 	/* Porch Box - Larger for Tablet */
 	.porch-box {
 		width: 300px;
-		height: 250px;
-		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+		height: 200px;
+		/* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); */
 	}
 
 	.porch-walls {
@@ -1257,18 +1250,21 @@ body {
 		top: 42%;
 	}
 
-	.porch-content h4 {
-		font-size: 1.3rem;
-		margin-bottom: 8px;
+.porch-content h4 {
+		font-size: 1.5rem;
+		margin-bottom: 0px;
+		color: #2d5e5e;
 	}
 
 	#total-feet {
-		font-size: 0.85rem;
+		font-size: 0.95rem;
 	}
 
 	#total-feet span {
-		font-size: 1.3rem;
-		margin-top: 5px;
+		font-size: 1.5rem;
+		margin-top: 8px;
+		color: #263336;
+		font-weight: 700;
 	}
 
 	.house-attachment {
@@ -1304,7 +1300,7 @@ body {
 	#screen-calculator .button-group {
 		max-width: 600px;
 		margin: 40px auto 0;
-		gap: 20px;
+		gap: 50px;
 	}
 
 	#screen-calculator .cta-button {
@@ -1337,7 +1333,7 @@ body {
 	#screen-calculator .subtitle {
 		font-size: 1.1rem;
 		margin-bottom: 45px;
-		max-width: 800px;
+		/* max-width: 800px; */
 		margin-left: auto;
 		margin-right: auto;
 		line-height: 1.6;
@@ -1352,7 +1348,6 @@ body {
 	.selection-label {
 		font-size: 1.05rem;
 		margin-bottom: 25px;
-		text-align: center;
 		color: #2d5e5e;
 	}
 
@@ -1366,7 +1361,6 @@ body {
 	.room-card {
 		flex: 0 1 280px;
 		max-width: 280px;
-		padding: 25px;
 		border-radius: 14px;
 		transition: all 0.3s ease;
 	}
@@ -1406,14 +1400,13 @@ body {
 	/* Wall Inputs - Desktop */
 	.wall-input-wrapper label {
 		font-size: 1rem;
-		margin-bottom: 10px;
 		font-weight: 600;
 	}
 
 	.wall-input-wrapper input {
-		width: 140px;
-		padding: 12px;
-		font-size: 1.15rem;
+		width: 120px;
+		padding: 10px;
+		font-size: 1.1rem;
 		border: 2px solid #9ba3a3;
 		transition: all 0.3s ease;
 	}
@@ -1424,14 +1417,13 @@ body {
 
 	/* Top Wall Input - Desktop */
 	.wall-input-top {
-		margin-bottom: 25px;
+		margin-bottom: 20px;
 	}
 
 	/* Wall Diagram Row - Desktop */
 	.wall-diagram-row {
-		gap: 30px;
-		margin: 35px 0;
-		align-items: center;
+		gap: 20px;
+		margin: 20px 0 30px;
 	}
 
 	/* Left and Right Inputs - Desktop positioning */
@@ -1442,9 +1434,8 @@ body {
 
 	/* Porch Box - Desktop Size */
 	.porch-box {
-		width: 350px;
-		height: 280px;
-		box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+		width: 300px;
+		height: 200px;
 		border-radius: 10px;
 	}
 
@@ -1475,13 +1466,9 @@ body {
 		height: auto;
 	}
 
-	.porch-content {
-		top: 42%;
-	}
-
 	.porch-content h4 {
 		font-size: 1.5rem;
-		margin-bottom: 10px;
+		margin-bottom: px;
 		color: #2d5e5e;
 	}
 
@@ -1512,8 +1499,8 @@ body {
 	/* Price Display - Desktop */
 	.price-display {
 		max-width: 700px;
-		margin: 40px auto;
-		padding: 35px;
+		margin: 30px auto;
+		padding: 30px;
 		border-radius: 14px;
 		background: linear-gradient(135deg, #5e8a8a 0%, #4a7070 100%);
 		box-shadow: 0 8px 30px rgba(94, 138, 138, 0.2);
@@ -1549,8 +1536,8 @@ body {
 
 	#screen-calculator .button-group {
 		max-width: 600px;
-		margin: 45px auto 0;
-		gap: 25px;
+		margin: 40px auto 0;
+		gap: 50px;
 	}
 
 	#screen-calculator .cta-button {
@@ -1591,28 +1578,7 @@ body {
 	.container {
 		padding: 20px;
 	}
-
-	/* Keep other screen elements responsive */
-	.room-types {
-		flex-direction: column;
-	}
-
-	.room-card {
-		max-width: 100%;
-	}
-
-	.wall-diagram-middle {
-		flex-direction: column;
-	}
-
-	.form-layout {
-		grid-template-columns: 1fr;
-	}
-
-	.button-group {
-		flex-direction: column;
-	}
-}
+} 
 
 /* ==============================================
    FORM VALIDATION STYLES
