@@ -105,13 +105,18 @@ function selectRoomType(type, minPrice, maxPrice, minRate, maxRate) {
     // Add selection to clicked card
     event.currentTarget.classList.add('selected');
     
-    // Show calculator section with animation
-    const calcSection = document.getElementById('calculator-section');
-    calcSection.classList.remove('hidden');
+    // Enable measurement section
+    const measurementSection = document.getElementById('measurement-section');
+    measurementSection.classList.remove('disabled');
     
-    // Focus on first input
+    // Enable all input fields
+    document.getElementById('wall1').disabled = false;
+    document.getElementById('wall2').disabled = false;
+    document.getElementById('wall3').disabled = false;
+    
+    // Focus on first input after short delay
     setTimeout(() => {
-        document.getElementById('wall1').focus();
+        document.getElementById('wall2').focus(); // Focus top input first
     }, 300);
     
     // Initialize calculation if there are existing values
@@ -168,11 +173,6 @@ function calculatePrice() {
         
         // Update UI
         updatePriceDisplay();
-        
-        // Show continue button if all walls have values
-        if (wall1 > 0 && wall2 > 0 && wall3 > 0) {
-            document.getElementById('continue-btn').classList.remove('hidden');
-        }
     } else {
         // Reset if no dimensions
         resetPriceDisplay();
@@ -181,28 +181,41 @@ function calculatePrice() {
 
 function updatePriceDisplay() {
     // Update total feet display
-    document.getElementById('total-feet').textContent = 
-        `Total Linear Feet: ${calculatorState.calculatedPrice.totalLinearFeet.toFixed(1)} ft`;
+    const totalFeetSpan = document.querySelector('#total-feet span');
+    if (totalFeetSpan) {
+        totalFeetSpan.textContent = `${calculatorState.calculatedPrice.totalLinearFeet.toFixed(1)} ft`;
+    }
     
-    // Update price range display
+    // Show price display only if there are measurements
     const priceDisplay = document.getElementById('price-display');
-    priceDisplay.classList.remove('hidden');
+    if (calculatorState.calculatedPrice.totalLinearFeet > 0) {
+        priceDisplay.classList.remove('hidden');
+        
+        const priceRange = priceDisplay.querySelector('.price-range');
+        priceRange.textContent = 
+            `${calculatorState.calculatedPrice.min.toLocaleString()} - ${calculatorState.calculatedPrice.max.toLocaleString()}`;
+    }
     
-    const priceRange = priceDisplay.querySelector('.price-range');
-    priceRange.textContent = 
-        `$${calculatorState.calculatedPrice.min.toLocaleString()} - $${calculatorState.calculatedPrice.max.toLocaleString()}`;
+    // Enable/disable continue button based on all fields having values
+    const continueBtn = document.getElementById('continue-btn');
+    const wall1 = parseFloat(document.getElementById('wall1').value) || 0;
+    const wall2 = parseFloat(document.getElementById('wall2').value) || 0;
+    const wall3 = parseFloat(document.getElementById('wall3').value) || 0;
     
-    // Update note about square footage
-    const note = priceDisplay.querySelector('.note');
-    note.innerHTML = `Note: These are estimated ranges based on standard installations.<br>
-        ${calculatorState.calculatedPrice.totalSquareFeet.toFixed(0)} sq ft total 
-        (${calculatorState.calculatedPrice.totalLinearFeet.toFixed(1)} linear ft × ${calculatorState.dimensions.height} ft height)`;
+    if (wall1 > 0 && wall2 > 0 && wall3 > 0) {
+        continueBtn.disabled = false;
+    } else {
+        continueBtn.disabled = true;
+    }
 }
 
 function resetPriceDisplay() {
-    document.getElementById('total-feet').textContent = 'Total Linear Feet: 0 ft';
+    const totalFeetSpan = document.querySelector('#total-feet span');
+    if (totalFeetSpan) {
+        totalFeetSpan.textContent = '0 ft';
+    }
     document.getElementById('price-display').classList.add('hidden');
-    document.getElementById('continue-btn').classList.add('hidden');
+    document.getElementById('continue-btn').disabled = true;
 }
 
 function updateFinalPriceDisplay() {

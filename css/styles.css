@@ -214,51 +214,67 @@ body {
 }
 
 /* ==============================================
-   CALCULATOR SCREEN (SCREEN 2)
+   CALCULATOR SCREEN (SCREEN 2) - MOBILE FIRST
    ============================================== */
 
 #screen-calculator h2 {
 	font-family: "Poppins", sans-serif;
-	color: #2d5e5e;
-	font-size: 2.5rem;
+	color: #263336;
+	font-size: 1.75rem;
 	text-align: center;
 	margin-bottom: 15px;
 	font-weight: 700;
+	line-height: 1.2;
 }
 
-.subtitle {
+#screen-calculator .subtitle {
 	font-family: "Inter", sans-serif;
 	text-align: center;
 	color: #666;
-	margin-bottom: 40px;
-	font-size: 1.1rem;
+	margin-bottom: 30px;
+	font-size: 0.95rem;
 	font-weight: 400;
+	line-height: 1.5;
+	padding: 0 10px;
 }
 
-/* Room Type Selection Cards */
+/* Room Selection Container */
+.room-selection-container {
+	margin-bottom: 35px;
+}
+
+.selection-label {
+	font-family: "Inter", sans-serif;
+	color: #2d5e5e;
+	font-size: 0.9rem;
+	font-weight: 600;
+	margin-bottom: 15px;
+	text-align: left;
+}
+
+/* Room Type Selection Cards - Mobile */
 .room-types {
 	display: flex;
-	gap: 20px;
-	justify-content: center;
-	margin-bottom: 50px;
+	flex-direction: column;
+	gap: 15px;
+	width: 100%;
 }
 
 .room-card {
 	background: white;
-	border: 3px solid transparent;
+	border: 3px solid #e8e0d5;
 	border-radius: 12px;
-	padding: 20px;
+	padding: 18px;
 	cursor: pointer;
 	transition: all 0.3s ease;
-	flex: 1;
-	max-width: 250px;
 	text-align: center;
+	width: 100%;
 }
 
 .room-card:hover {
 	border-color: #9ba3a3;
-	transform: translateY(-3px);
-	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+	transform: translateY(-2px);
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
 .room-card.selected {
@@ -269,16 +285,16 @@ body {
 
 .room-card h3 {
 	font-family: "Poppins", sans-serif;
-	font-size: 1.2rem;
-	margin-bottom: 10px;
+	font-size: 1.1rem;
+	margin-bottom: 8px;
 	font-weight: 600;
 }
 
 .room-card .price {
-	font-size: 1.1rem;
+	font-size: 1rem;
 	font-weight: 600;
 	color: #2d5e5e;
-	margin-bottom: 8px;
+	margin-bottom: 6px;
 }
 
 .room-card.selected .price {
@@ -286,84 +302,132 @@ body {
 }
 
 .room-card .desc {
-	font-size: 0.9rem;
+	font-size: 0.85rem;
 	color: #666;
+	line-height: 1.3;
 }
 
 .room-card.selected .desc {
 	color: rgba(255, 255, 255, 0.9);
 }
 
-/* Wall Diagram */
+/* Measurement Section - Mobile First */
+.measurement-section {
+	transition: all 0.3s ease;
+	margin-bottom: 30px;
+}
+
+.measurement-section.disabled {
+	opacity: 0.3;
+	pointer-events: none;
+	filter: grayscale(30%);
+}
+
+/* Wall Diagram Container - Mobile */
 .wall-diagram-container {
-	max-width: 600px;
-	margin: 40px auto;
+	/* max-width: 320px; */
+	margin: 0 auto;
+	position: relative;
+	/* padding: 20px 10px; */
+}
+
+/* Wall Input Wrappers - Mobile */
+.wall-input-wrapper {
 	position: relative;
 }
 
-.wall-input-top {
-	text-align: center;
-	margin-bottom: 20px;
-}
-
-.wall-input-top label {
+.wall-input-wrapper label {
 	font-family: "Inter", sans-serif;
 	display: block;
 	color: #2d5e5e;
 	font-weight: 600;
-	margin-bottom: 8px;
+	font-size: 0.85rem;
+	margin-bottom: 6px;
 }
 
-.wall-input-top input {
-	width: 120px;
-	padding: 10px;
-	font-size: 1.1rem;
+.wall-input-wrapper input {
+	width: 100px;
+	padding: 8px;
+	font-size: 1rem;
 	border: 2px solid #9ba3a3;
 	border-radius: 6px;
 	text-align: center;
+	background: white;
 }
 
-.wall-diagram-middle {
+.wall-input-wrapper input:focus {
+	outline: none;
+	border-color: #2d5e5e;
+	box-shadow: 0 0 0 3px rgba(45, 94, 94, 0.1);
+}
+
+/* Arrow styling */
+.arrow-down,
+.arrow-right,
+.arrow-left {
+	color: #2d5e5e;
+	font-weight: bold;
+}
+
+/* Top Wall Input */
+.wall-input-top {
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.wall-input-top label {
+	text-align: center;
+}
+
+/* Wall Diagram Row - Mobile */
+.wall-diagram-row {
 	display: flex;
-	align-items: center;
+	/* align-items: center; */
 	justify-content: center;
-	gap: 20px;
-	margin: 40px 0;
+	gap: 10px;
+	/* margin: 20px 0; */
 }
 
-.wall-input-left,
+/* Left Wall Input */
+.wall-input-left {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.wall-input-left label {
+	text-align: right;
+	/* font-size: 0.75rem; */
+}
+
+.wall-input-left input {
+	/* width: 80px; */
+}
+
+/* Right Wall Input */
 .wall-input-right {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: flex-start;
 }
 
-.wall-input-left label,
 .wall-input-right label {
-	font-family: "Inter", sans-serif;
-	color: #2d5e5e;
-	font-weight: 600;
-	margin-bottom: 8px;
+	text-align: left;
+	/* font-size: 0.75rem; */
 }
 
-.wall-input-left input,
 .wall-input-right input {
-	width: 120px;
-	padding: 10px;
-	font-size: 1.1rem;
-	border: 2px solid #9ba3a3;
-	border-radius: 6px;
-	text-align: center;
+	/* width: 80px; */
 }
 
-/* Porch Box Visual */
+/* Porch Box Visual - Mobile */
 .porch-box {
-	width: 300px;
-	height: 250px;
+	width: 140px;
+	height: 120px;
 	position: relative;
 	background: #ffffff;
 	border-radius: 8px;
-	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+	/* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); */
 }
 
 .porch-walls {
@@ -371,7 +435,7 @@ body {
 	top: 0;
 	left: 0;
 	right: 0;
-	bottom: 40px;
+	bottom: 25px;
 }
 
 .wall {
@@ -383,42 +447,52 @@ body {
 	top: 0;
 	left: 0;
 	right: 0;
-	height: 4px;
+	height: 3px;
 }
 
 .wall-left {
 	top: 0;
 	left: 0;
 	bottom: 0;
-	width: 4px;
+	width: 3px;
 }
 
 .wall-right {
 	top: 0;
 	right: 0;
 	bottom: 0;
-	width: 4px;
+	width: 3px;
 }
 
 .porch-content {
 	position: absolute;
-	top: 50%;
+	top: 37%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	text-align: center;
+	width: 90%;
 }
 
 .porch-content h4 {
 	font-family: "Poppins", sans-serif;
 	color: #2d5e5e;
-	font-size: 1.5rem;
-	margin-bottom: 10px;
+	font-size: 1rem;
+	margin-bottom: 5px;
 	font-weight: 600;
 }
 
 #total-feet {
 	color: #263336;
+	font-size: 0.5rem;
+	font-weight: 500;
+	line-height: 1.2;
+}
+
+#total-feet span {
+	display: block;
 	font-weight: 600;
+	font-size: 1rem;
+	margin-top: 2px;
 }
 
 .house-attachment {
@@ -427,7 +501,7 @@ body {
 	left: 0;
 	right: 0;
 	background: #e8e0d5;
-	padding: 10px;
+	/* padding: 2px; */
 	text-align: center;
 	border-bottom-left-radius: 8px;
 	border-bottom-right-radius: 8px;
@@ -436,36 +510,45 @@ body {
 
 .house-attachment span {
 	color: #666;
-	font-size: 0.9rem;
+	font-size: 0.7rem;
+	font-weight: 500;
+	line
 }
 
-/* Price Display */
+/* Price Display - Mobile */
 .price-display {
 	background: #5e8a8a;
 	color: white;
-	padding: 30px;
+	padding: 20px;
 	border-radius: 12px;
 	text-align: center;
-	margin: 40px auto;
-	max-width: 600px;
+	margin: 25px 0;
+	width: 100%;
+}
+
+.price-display.hidden {
+	display: none;
 }
 
 .price-display h3 {
 	font-family: "Poppins", sans-serif;
-	font-size: 1.3rem;
-	margin-bottom: 15px;
+	font-size: 1.1rem;
+	margin-bottom: 12px;
 	font-weight: 600;
 }
 
-.price-range {
-	font-size: 2.5rem;
+.price-display .price-range {
+	font-size: 2rem;
 	font-weight: 700;
-	margin-bottom: 15px;
+	margin-bottom: 12px;
+	letter-spacing: -0.5px;
 }
 
 .price-display .note {
-	font-size: 0.95rem;
+	font-size: 0.8rem;
 	opacity: 0.9;
+	line-height: 1.4;
+	padding: 0 10px;
 }
 
 /* ==============================================
@@ -659,31 +742,49 @@ body {
 }
 
 /* ==============================================
-   BUTTONS
+   BUTTONS - MOBILE FIRST
    ============================================== */
 
 .button-group {
 	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	margin-top: 30px;
+	width: 100%;
+}
+
+/* Calculator Screen Buttons */
+#screen-calculator .button-group {
+	flex-direction: row;
 	justify-content: space-between;
-	margin-top: 40px;
-	gap: 20px;
+	gap: 12px;
 }
 
 .cta-button {
 	font-family: "Inter", sans-serif;
 	background: #2d5e5e;
 	color: white;
-	padding: 20px 40px;
+	padding: 16px 25px;
 	border: none;
 	border-radius: 50px;
-	font-size: 1.4rem;
+	font-size: 1.1rem;
 	font-weight: 600;
 	cursor: pointer;
 	transition: all 0.3s ease;
-	letter-spacing: 0.5px;
+	letter-spacing: 0.3px;
+	white-space: nowrap;
+	text-align: center;
+	min-width: 0;
+	flex: 1;
 }
 
-.cta-button:hover {
+.cta-button:disabled {
+	background: #9ba3a3;
+	cursor: not-allowed;
+	opacity: 0.6;
+}
+
+.cta-button:not(:disabled):hover {
 	background: #263336;
 	transform: translateY(-2px);
 	box-shadow: 0 6px 20px rgba(45, 94, 94, 0.3);
@@ -691,10 +792,12 @@ body {
 
 .cta-button.primary {
 	background: #2d5e5e;
+	padding: 20px 40px;
+	font-size: 1.4rem;
 }
 
 .cta-button.primary:hover {
-	background: #2d5e5e;
+	background: #263336;
 	transform: translateY(-2px);
 	box-shadow: 0 6px 20px rgba(45, 94, 94, 0.3);
 }
@@ -703,18 +806,39 @@ body {
 	font-family: "Inter", sans-serif;
 	background: transparent;
 	color: #2d5e5e;
-	padding: 16px 30px;
+	padding: 14px 20px;
 	border: 2px solid #2d5e5e;
 	border-radius: 50px;
-	font-size: 1rem;
+	font-size: 0.95rem;
 	font-weight: 600;
 	cursor: pointer;
 	transition: all 0.3s ease;
+	white-space: nowrap;
+	min-width: 0;
+	flex: 0 0 auto;
 }
 
 .back-button:hover {
 	background: #2d5e5e;
 	color: white;
+}
+
+/* Hide arrow spans on very small screens if needed */
+@media (max-width: 380px) {
+	#screen-calculator .cta-button {
+		font-size: 0.95rem;
+		padding: 14px 15px;
+	}
+
+	#screen-calculator .back-button {
+		font-size: 0.85rem;
+		padding: 14px 15px;
+	}
+
+	.arrow-right,
+	.arrow-left {
+		display: none;
+	}
 }
 
 /* ==============================================
@@ -851,7 +975,7 @@ body {
 		bottom: 15px;
 		top: auto;
 	}
-	
+
 	/* 3 Season Eze Breeze - stays left */
 	.grid-item[data-mobile-order="3"] .room-label {
 		left: 15px;
@@ -859,7 +983,7 @@ body {
 		bottom: 15px;
 		top: auto;
 	}
-	
+
 	/* Screen Only Sunroom - move to right and top */
 	.grid-item[data-mobile-order="5"] .room-label {
 		left: auto;
@@ -966,7 +1090,7 @@ body {
 		bottom: 15px;
 		top: auto;
 	}
-	
+
 	/* 3 Season Eze Breeze - stays left */
 	.grid-item[data-mobile-order="3"] .room-label {
 		left: 15px;
@@ -974,7 +1098,7 @@ body {
 		bottom: 15px;
 		top: auto;
 	}
-	
+
 	/* Screen Only Sunroom - move to top left */
 	.grid-item[data-mobile-order="5"] .room-label {
 		left: 15px;
