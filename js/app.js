@@ -193,7 +193,7 @@ function updatePriceDisplay() {
         
         const priceRange = priceDisplay.querySelector('.price-range');
         priceRange.textContent = 
-            `${calculatorState.calculatedPrice.min.toLocaleString()} - ${calculatorState.calculatedPrice.max.toLocaleString()}`;
+            `$${calculatorState.calculatedPrice.min.toLocaleString()} - $${calculatorState.calculatedPrice.max.toLocaleString()}`;
     }
     
     // Enable/disable continue button based on all fields having values
@@ -269,62 +269,90 @@ function validateContactForm() {
 }
 
 function submitForm() {
-    if (!validateContactForm()) {
-        return;
-    }
-    
-    // Collect all form data
-    const formData = {
-        // Personal information
-        contact: {
-            fullName: document.getElementById('fullName').value,
-            address: document.getElementById('address').value,
-            city: document.getElementById('city').value,
-            state: document.getElementById('state').value,
-            zip: document.getElementById('zip').value,
-            phone: document.getElementById('phone').value,
-            email: document.getElementById('email').value,
-            projectDetails: document.getElementById('project-details').value,
-            timeline: document.getElementById('timeline').value
-        },
-        
-        // Calculator data
-        sunroom: {
-            roomType: calculatorState.selectedRoom,
-            roomTypeName: calculatorState.roomTypeName,
-            dimensions: calculatorState.dimensions,
-            totalLinearFeet: calculatorState.calculatedPrice.totalLinearFeet,
-            totalSquareFeet: calculatorState.calculatedPrice.totalSquareFeet,
-            priceRange: {
-                min: calculatorState.calculatedPrice.min,
-                max: calculatorState.calculatedPrice.max
-            }
-        },
-        
-        // Metadata
-        meta: {
-            submittedAt: new Date().toISOString(),
-            userAgent: navigator.userAgent,
-            referrer: document.referrer
-        }
-    };
-    
-    // Log the submission (for debugging)
-    console.log('Quote Request Submitted:', formData);
-    
-    // Show loading state
-    const submitButton = event.currentTarget;
-    submitButton.innerHTML = '<span class="spinner"></span> Submitting...';
-    submitButton.disabled = true;
-    
-    // Simulate submission (replace with actual API call)
-    setTimeout(() => {
-        // Show thank you screen
-        showScreen('thankyou');
-        
-        // You would typically send this to your server here:
-        // submitToServer(formData);
-    }, 1000);
+if (!validateContactForm()) {
+return;
+}
+
+// Collect all form data
+const formData = {
+// Personal information
+contact: {
+fullName: document.getElementById('fullName').value,
+address: document.getElementById('address').value,
+city: document.getElementById('city').value,
+state: document.getElementById('state').value,
+zip: document.getElementById('zip').value,
+phone: document.getElementById('phone').value,
+email: document.getElementById('email').value,
+projectDetails: document.getElementById('project-details').value,
+timeline: document.getElementById('timeline').value
+},
+
+// Calculator data
+sunroom: {
+roomType: calculatorState.selectedRoom,
+roomTypeName: calculatorState.roomTypeName,
+dimensions: calculatorState.dimensions,
+totalLinearFeet: calculatorState.calculatedPrice.totalLinearFeet,
+totalSquareFeet: calculatorState.calculatedPrice.totalSquareFeet,
+priceRange: {
+min: calculatorState.calculatedPrice.min,
+max: calculatorState.calculatedPrice.max
+}
+},
+
+// Metadata
+meta: {
+submittedAt: new Date().toISOString(),
+userAgent: navigator.userAgent,
+referrer: document.referrer
+}
+};
+
+// Log the submission (for debugging)
+console.log('Quote Request Submitted:', formData);
+
+// Show loading state
+const submitButton = event.currentTarget;
+submitButton.innerHTML = '<span class="spinner"></span> Submitting...';
+submitButton.disabled = true;
+
+// Simulate submission (replace with actual API call)
+setTimeout(() => {
+// Update thank you screen with quote data
+updateThankYouScreen();
+
+// Show thank you screen
+showScreen('thankyou');
+ 
+		// You would typically send this to your server here:
+		// submitToServer(formData);
+	}, 1000);
+}
+
+// ==============================================
+// UPDATE THANK YOU SCREEN
+// ==============================================
+
+function updateThankYouScreen() {
+	// Update price range
+	const summaryPriceRange = document.querySelector('.summary-price-range');
+	if (summaryPriceRange) {
+		summaryPriceRange.textContent = 
+			`$${calculatorState.calculatedPrice.min.toLocaleString()} - $${calculatorState.calculatedPrice.max.toLocaleString()}`;
+	}
+	
+	// Update room type
+	const summaryRoomType = document.getElementById('summary-room-type');
+	if (summaryRoomType) {
+		summaryRoomType.textContent = calculatorState.roomTypeName;
+	}
+	
+	// Update linear feet
+	const summaryLinearFeet = document.getElementById('summary-linear-feet');
+	if (summaryLinearFeet) {
+		summaryLinearFeet.textContent = calculatorState.calculatedPrice.totalLinearFeet.toFixed(1);
+	}
 }
 
 // ==============================================

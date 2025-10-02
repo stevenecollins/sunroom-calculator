@@ -264,7 +264,7 @@ body {
 	background: white;
 	border: 3px solid white;
 	border-radius: 12px;
-	padding: 18px;
+	padding: 16px 18px 18px;
 	cursor: pointer;
 	transition: all 0.3s ease;
 	text-align: center;
@@ -287,15 +287,14 @@ body {
 .room-card h3 {
 	font-family: "Poppins", sans-serif;
 	font-size: 1.1rem;
-	margin-bottom: 8px;
 	font-weight: 600;
 }
 
 .room-card .price {
-	font-size: 1rem;
+	font-size: 1.2rem;
 	font-weight: 600;
 	color: #2d5e5e;
-	margin-bottom: 6px;
+	margin-bottom: 3px;
 }
 
 .room-card.selected .price {
@@ -524,14 +523,13 @@ body {
 .price-display h3 {
 	font-family: "Poppins", sans-serif;
 	font-size: 1.1rem;
-	margin-bottom: 12px;
 	font-weight: 600;
 }
 
 .price-display .price-range {
 	font-size: 2rem;
 	font-weight: 700;
-	margin-bottom: 12px;
+	margin-bottom: 5px;
 	letter-spacing: -0.5px;
 }
 
@@ -543,78 +541,138 @@ body {
 }
 
 /* ==============================================
-   CONTACT FORM (SCREEN 3)
+   CONTACT FORM (SCREEN 3) - MOBILE FIRST
    ============================================== */
 
+/* Mobile Typography */
 #screen-contact h2 {
 	font-family: "Poppins", sans-serif;
-	color: #2d5e5e;
-	font-size: 2.5rem;
+	color: #263336;
+	font-size: 1.75rem;
 	text-align: center;
 	margin-bottom: 15px;
 	font-weight: 700;
+	line-height: 1.2;
 }
 
+#screen-contact .subtitle {
+	font-family: "Inter", sans-serif;
+	text-align: center;
+	color: #666;
+	margin-bottom: 30px;
+	font-size: 0.95rem;
+	font-weight: 400;
+	line-height: 1.5;
+	padding: 0 10px;
+}
+
+/* Form Layout - Mobile First (Single Column) */
 .form-layout {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 40px;
-	margin: 40px 0;
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+	margin: 30px 0;
 }
 
+/* Form Section - Mobile */
 .form-section {
 	background: #2d5e5e;
-	padding: 40px;
+	padding: 25px 20px;
 	border-radius: 12px;
 	color: white;
+	width: 100%;
 }
 
 .form-section h3 {
 	font-family: "Poppins", sans-serif;
-	margin-bottom: 30px;
-	font-size: 1.4rem;
+	margin-bottom: 25px;
+	font-size: 1.2rem;
 	font-weight: 600;
+	text-align: center;
 }
 
+/* Form Inputs - Mobile */
 #quote-form input,
 #quote-form textarea {
 	font-family: "Inter", sans-serif;
 	width: 100%;
-	padding: 12px;
-	margin-bottom: 20px;
+	padding: 12px 14px;
+	margin-bottom: 15px;
 	border: none;
 	border-radius: 6px;
 	font-size: 1rem;
 	font-weight: 400;
+	background: white;
+	color: #263336;
 }
 
+#quote-form input::placeholder,
+#quote-form textarea::placeholder {
+	color: #999;
+}
+
+#quote-form textarea {
+	resize: vertical;
+	min-height: 100px;
+	font-family: "Inter", sans-serif;
+}
+
+/* Address Row - Mobile (Stays Horizontal but Condensed) */
 .address-row {
 	display: grid;
-	grid-template-columns: 2fr 1fr 1fr;
-	gap: 10px;
-	margin-bottom: 20px;
+	grid-template-columns: 1.5fr 1fr 1fr;
+	gap: 8px;
+	margin-bottom: 15px;
 }
 
 .address-row input {
 	margin-bottom: 0 !important;
+	padding: 12px 10px;
+	font-size: 0.95rem;
 }
 
+/* Timeline Label */
 .timeline-label {
 	display: block;
 	margin-bottom: 10px;
-	font-size: 0.95rem;
-	opacity: 0.9;
+	font-size: 0.9rem;
+	opacity: 0.95;
+	line-height: 1.4;
 }
 
+/* What Happens Next Section - Mobile */
+.what-happens-next {
+	font-size: 0.85rem;
+	line-height: 1.5;
+	opacity: 0.9;
+	margin-top: 20px;
+	padding-top: 20px;
+	border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.what-happens-next h4 {
+	font-family: "Poppins", sans-serif;
+	font-size: 0.95rem;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+
+.what-happens-next p {
+	margin-bottom: 0;
+}
+
+/* Summary Section - Mobile */
 .summary-section {
 	display: flex;
 	flex-direction: column;
-	gap: 30px;
+	gap: 20px;
+	width: 100%;
 }
 
+/* Price Summary - Mobile */
 .price-summary {
-	background: #9ba3a3;
-	padding: 30px;
+	background: #5e8a8a;
+	padding: 25px 20px;
 	border-radius: 12px;
 	text-align: center;
 	color: white;
@@ -622,114 +680,263 @@ body {
 
 .price-summary h3 {
 	font-family: "Poppins", sans-serif;
-	font-size: 1.2rem;
-	margin-bottom: 15px;
+	font-size: 1.1rem;
 	font-weight: 600;
 }
 
-.final-price-range {
-	font-size: 2.2rem;
+.price-summary p {
+	font-size: 0.95rem;
+	line-height: 1.4;
+	opacity: 0.95;
+}
+
+p.final-price-range {
+	font-size: 2rem;
 	font-weight: 700;
-	margin-bottom: 15px;
+	margin-bottom: 12px;
+	letter-spacing: -0.5px;
 }
 
-.guarantees {
-	background: white;
-	padding: 30px;
-	border-radius: 12px;
-	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+/* Contact Form Guarantees - Mobile First (styled like trust badges) */
+.contact-guarantees {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	margin-top: 25px;
+	padding-top: 0;
 }
 
-.guarantees p {
-	color: #263336;
-	font-size: 1.05rem;
-	margin-bottom: 15px;
+.guarantee-badge {
 	display: flex;
 	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	color: #263336;
+	font-size: 0.9rem;
+	padding: 10px;
 }
 
-.guarantees p:before {
-	content: "✓";
-	color: #5e8a8a;
-	font-weight: bold;
+.guarantee-badge .icon {
 	font-size: 1.3rem;
-	margin-right: 10px;
 }
 
 /* ==============================================
-   THANK YOU SCREEN (SCREEN 4)
+   THANK YOU SCREEN (SCREEN 4) - MOBILE FIRST
    ============================================== */
 
 .thank-you-content {
 	text-align: center;
-	max-width: 800px;
+	max-width: 100%;
 	margin: 0 auto;
-	padding: 40px;
+	padding: 30px 20px;
 	background: white;
 	border-radius: 12px;
-	box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
+/* Success Icon - Mobile */
+.success-icon {
+	width: 60px;
+	height: 60px;
+	margin: 0 auto 25px;
+	background: #5e8a8a;
+	color: white;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 2rem;
+	font-weight: bold;
+	box-shadow: 0 4px 15px rgba(94, 138, 138, 0.3);
+}
+
+/* Main Heading - Mobile */
 .thank-you-content h1 {
 	font-family: "Poppins", sans-serif;
-	color: #2d5e5e;
-	font-size: 2.5rem;
-	margin-bottom: 30px;
+	color: #263336;
+	font-size: 1.75rem;
+	margin-bottom: 25px;
 	font-weight: 700;
+	line-height: 1.3;
 }
 
-.confirmation {
-	font-size: 1.2rem;
+/* Quote Summary Card - Mobile */
+.quote-summary-card {
+	background: #f5f1ec;
+	border: 2px solid #e8e0d5;
+	border-radius: 10px;
+	padding: 20px;
+	margin-bottom: 25px;
+}
+
+.quote-summary-card h3 {
+	font-family: "Poppins", sans-serif;
+	color: #2d5e5e;
+	font-size: 1rem;
+	margin-bottom: 10px;
+	font-weight: 600;
+}
+
+.summary-price-range {
+	font-size: 1.8rem;
+	font-weight: 700;
+	color: #263336;
+	margin-bottom: 8px;
+	letter-spacing: -0.5px;
+}
+
+.summary-details {
+	font-size: 0.95rem;
 	color: #666;
-	margin-bottom: 40px;
+	margin: 0;
+}
+
+/* Confirmation Text - Mobile */
+.confirmation {
+	font-size: 1rem;
+	color: #666;
+	margin-bottom: 30px;
 	line-height: 1.6;
 }
 
+/* Next Steps Section - Mobile */
 .next-steps {
 	text-align: left;
 	background: #f5f1ec;
-	padding: 30px;
-	border-radius: 8px;
-	margin-bottom: 30px;
+	padding: 25px 20px;
+	border-radius: 10px;
+	margin-bottom: 25px;
 }
 
 .next-steps h3 {
 	font-family: "Poppins", sans-serif;
 	color: #2d5e5e;
-	margin-bottom: 20px;
+	margin-bottom: 15px;
 	font-weight: 600;
+	font-size: 1.2rem;
+}
+
+.timeline-highlight {
+	font-weight: 600;
+	color: #263336;
+	margin-bottom: 15px;
+	font-size: 1rem;
+	line-height: 1.5;
 }
 
 .next-steps ul {
 	list-style: none;
 	padding: 0;
+	margin-bottom: 20px;
 }
 
 .next-steps li {
-	padding: 10px 0;
+	padding: 8px 0;
 	padding-left: 30px;
 	position: relative;
 	color: #263336;
+	line-height: 1.5;
+	font-size: 0.95rem;
 }
 
 .next-steps li:before {
 	content: "•";
 	color: #5e8a8a;
 	font-weight: bold;
-	font-size: 1.5rem;
+	font-size: 1.3rem;
 	position: absolute;
 	left: 10px;
 }
 
+.consultation-details {
+	color: #666;
+	font-size: 0.9rem;
+	line-height: 1.6;
+	margin: 0;
+}
+
+/* In the Meantime Section - Mobile */
+.in-meantime {
+	text-align: left;
+	margin-bottom: 25px;
+	padding: 20px;
+	background: #ffffff;
+	border: 2px solid #e8e0d5;
+	border-radius: 10px;
+}
+
+.in-meantime h3 {
+	font-family: "Poppins", sans-serif;
+	color: #2d5e5e;
+	margin-bottom: 15px;
+	font-weight: 600;
+	font-size: 1.1rem;
+	text-align: center;
+}
+
+.resource-links {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.resource-link {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 12px 15px;
+	background: #f5f1ec;
+	border-radius: 8px;
+	text-decoration: none;
+	color: #263336;
+	transition: all 0.3s ease;
+	border: 2px solid transparent;
+}
+
+.resource-link:hover {
+	background: #e8e0d5;
+	border-color: #5e8a8a;
+	transform: translateX(5px);
+}
+
+.resource-icon {
+	font-size: 1.3rem;
+	flex-shrink: 0;
+}
+
+.resource-text {
+	font-size: 0.95rem;
+	font-weight: 500;
+	text-align: left;
+	line-height: 1.3;
+}
+
+/* Closing Message - Mobile */
+.closing-message {
+	font-size: 1.05rem;
+	color: #2d5e5e;
+	font-weight: 600;
+	margin-bottom: 25px;
+	line-height: 1.5;
+}
+
+/* Contact Box - Mobile */
 .contact-box {
-	background: #9ba3a3;
+	background: #2d5e5e;
 	color: white;
 	padding: 20px;
-	border-radius: 8px;
+	border-radius: 10px;
 }
 
 .contact-box p {
+	font-size: 1rem;
+	margin: 0;
+	line-height: 1.5;
+}
+
+.contact-box strong {
 	font-size: 1.1rem;
+	font-weight: 700;
 }
 
 /* ==============================================
@@ -744,11 +951,22 @@ body {
 	width: 100%;
 }
 
-/* Calculator Screen Buttons */
-#screen-calculator .button-group {
-	flex-direction: row;
-	justify-content: space-between;
-	gap: 12px;
+/* Landing Page Buttons - Keep existing behavior
+#screen-landing .button-group {
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+	margin: 40px auto;
+	max-width: 100%;
+} */
+
+/* Calculator & Contact Screen Buttons - Mobile (Stacked) */
+#screen-calculator .button-group,
+#screen-contact .button-group {
+	flex-direction: column;
+	gap: 15px;
+	align-items: stretch;
+	max-width: 100%;
 }
 
 .cta-button {
@@ -766,7 +984,6 @@ body {
 	white-space: nowrap;
 	text-align: center;
 	min-width: 0;
-	flex: 1;
 }
 
 .cta-button:disabled {
@@ -806,7 +1023,6 @@ body {
 	transition: all 0.3s ease;
 	white-space: nowrap;
 	min-width: 0;
-	flex: 0 0 auto;
 }
 
 .back-button:hover {
@@ -879,16 +1095,15 @@ body {
 	/* Pricing tagline section - horizontal layout */
 	.pricing-tagline-section {
 		flex-direction: row;
-		justify-content: center;
 		align-items: center;
 		gap: 30px;
 		margin: 50px auto;
+		justify-content: space-between;
 	}
 
 	.pricing-tagline {
 		font-size: 1.3rem;
 		text-align: left;
-		max-width: 350px;
 		line-height: 1.3;
 	}
 }
@@ -1298,9 +1513,10 @@ body {
 
 	/* Buttons - Tablet */
 	#screen-calculator .button-group {
-		max-width: 600px;
+		flex-direction: row;
 		margin: 40px auto 0;
 		gap: 50px;
+		justify-content: space-between;
 	}
 
 	#screen-calculator .cta-button {
@@ -1359,8 +1575,8 @@ body {
 	}
 
 	.room-card {
-		flex: 0 1 280px;
-		max-width: 280px;
+		flex: 0 1 auto;
+		max-width: 100%;
 		border-radius: 14px;
 		transition: all 0.3s ease;
 	}
@@ -1372,7 +1588,7 @@ body {
 
 	.room-card h3 {
 		font-size: 1.3rem;
-		margin-bottom: 10px;
+		margin-bottom: 5px;
 	}
 
 	.room-card .price {
@@ -1508,8 +1724,6 @@ body {
 
 	.price-display h3 {
 		font-size: 1.3rem;
-		margin-bottom: 15px;
-		letter-spacing: 0.5px;
 	}
 
 	.price-display .price-range {
@@ -1535,7 +1749,9 @@ body {
 	}
 
 	#screen-calculator .button-group {
-		max-width: 600px;
+		flex-direction: row;
+		justify-content: space-between;
+		max-width: 900px;
 		margin: 40px auto 0;
 		gap: 50px;
 	}
@@ -1570,6 +1786,587 @@ body {
 	.arrow-right, .arrow-left, .arrow-down {
 		display: inline;
 		font-size: 1.1em;
+	}
+}
+
+/* ==============================================
+   CONTACT FORM (SCREEN 3) - TABLET STYLES (768px to 1170px)
+   ============================================== */
+@media (min-width: 768px) and (max-width: 1170px) {
+	/* Contact Form Typography - Tablet */
+	#screen-contact h2 {
+		font-size: 2.2rem;
+		margin-bottom: 20px;
+		color: #263336;
+	}
+
+	#screen-contact .subtitle {
+		font-size: 1.05rem;
+		margin-bottom: 35px;
+		padding: 0 20px;
+	}
+
+	/* Form Layout - Still Single Column for Tablet */
+	.form-layout {
+		max-width: 700px;
+		margin: 35px auto;
+		gap: 30px;
+	}
+
+	/* Form Section - Tablet */
+	.form-section {
+		padding: 35px 30px;
+	}
+
+	.form-section h3 {
+		font-size: 1.35rem;
+		margin-bottom: 28px;
+	}
+
+	/* Form Inputs - Tablet */
+	#quote-form input,
+	#quote-form textarea {
+		padding: 14px 16px;
+		margin-bottom: 18px;
+		font-size: 1.05rem;
+	}
+
+	#quote-form textarea {
+		min-height: 120px;
+	}
+
+	/* Address Row - Tablet */
+	.address-row {
+		grid-template-columns: 2fr 1fr 1fr;
+		gap: 12px;
+		margin-bottom: 18px;
+	}
+
+	.address-row input {
+		padding: 14px 12px;
+		font-size: 1rem;
+	}
+
+	/* Timeline Label - Tablet */
+	.timeline-label {
+		font-size: 0.95rem;
+		margin-bottom: 12px;
+	}
+
+	/* What Happens Next - Tablet */
+	.what-happens-next {
+		font-size: 0.9rem;
+		margin-top: 25px;
+		padding-top: 25px;
+	}
+
+	.what-happens-next h4 {
+		font-size: 1rem;
+		margin-bottom: 12px;
+	}
+
+	/* Summary Section - Tablet */
+	.summary-section {
+		gap: 25px;
+	}
+
+	/* Price Summary - Tablet */
+	.price-summary {
+		background: #5e8a8a;
+		padding: 30px 25px;
+		border-radius: 14px;
+		box-shadow: 0 4px 20px rgba(94, 138, 138, 0.15);
+	}
+
+	.price-summary h3 {
+		font-size: 1.25rem;
+		margin-bottom: 15px;
+	}
+
+	.price-summary p {
+		font-size: 1rem;
+	}
+
+	.final-price-range {
+		font-size: 2.3rem;
+		margin-bottom: 15px;
+	}
+
+	/* Contact Form Guarantees - Tablet (horizontal layout) */
+	.contact-guarantees {
+		flex-direction: row;
+		justify-content: center;
+		gap: 20px;
+		margin-top: 25px;
+		padding-top: 0;
+	}
+
+	.guarantee-badge {
+		font-size: 0.95rem;
+		padding: 0;
+	}
+
+	.guarantee-badge .icon {
+		font-size: 1.4rem;
+	}
+
+	/* Buttons - Tablet */
+	#screen-contact .button-group {
+		margin: 40px auto 0;
+		flex-direction: row;
+		gap: 20px;
+		justify-content: space-between;
+	}
+
+	#screen-contact .cta-button {
+		font-size: 1.15rem;
+		padding: 18px 35px;
+	}
+
+	#screen-contact .back-button {
+		font-size: 1rem;
+		padding: 16px 30px;
+	}
+
+	/* Thank You Screen - Tablet */
+	.thank-you-content {
+		max-width: 750px;
+		padding: 40px 35px;
+	}
+
+	.success-icon {
+		width: 70px;
+		height: 70px;
+		margin-bottom: 30px;
+		font-size: 2.3rem;
+	}
+
+	.thank-you-content h1 {
+		font-size: 2.2rem;
+		margin-bottom: 30px;
+		line-height: 1.3;
+	}
+
+	.quote-summary-card {
+		padding: 25px 30px;
+		margin-bottom: 30px;
+	}
+
+	.quote-summary-card h3 {
+		font-size: 1.1rem;
+		margin-bottom: 12px;
+	}
+
+	.summary-price-range {
+		font-size: 2.2rem;
+		margin-bottom: 10px;
+	}
+
+	.summary-details {
+		font-size: 1rem;
+	}
+
+	.confirmation {
+		font-size: 1.1rem;
+		margin-bottom: 35px;
+	}
+
+	.next-steps {
+		padding: 30px 28px;
+		margin-bottom: 30px;
+	}
+
+	.next-steps h3 {
+		font-size: 1.3rem;
+		margin-bottom: 18px;
+	}
+
+	.timeline-highlight {
+		font-size: 1.05rem;
+		margin-bottom: 18px;
+	}
+
+	.next-steps li {
+		padding: 10px 0;
+		padding-left: 35px;
+		font-size: 1rem;
+	}
+
+	.next-steps li:before {
+		font-size: 1.4rem;
+	}
+
+	.consultation-details {
+		font-size: 0.95rem;
+	}
+
+	.in-meantime {
+		padding: 25px;
+		margin-bottom: 30px;
+	}
+
+	.in-meantime h3 {
+		font-size: 1.2rem;
+		margin-bottom: 20px;
+	}
+
+	.resource-links {
+		gap: 15px;
+	}
+
+	.resource-link {
+		padding: 14px 18px;
+	}
+
+	.resource-icon {
+		font-size: 1.4rem;
+	}
+
+	.resource-text {
+		font-size: 1rem;
+	}
+
+	.closing-message {
+		font-size: 1.1rem;
+		margin-bottom: 30px;
+	}
+
+	.contact-box {
+		padding: 25px;
+	}
+
+	.contact-box p {
+		font-size: 1.05rem;
+	}
+
+	.contact-box strong {
+		font-size: 1.15rem;
+	}
+}
+
+/* ==============================================
+   CONTACT FORM (SCREEN 3) - DESKTOP STYLES (1171px and up)
+   ============================================== */
+@media (min-width: 1171px) {
+	/* Contact Form Typography - Desktop */
+	#screen-contact h2 {
+		font-size: 2.5rem;
+		margin-bottom: 25px;
+		color: #263336;
+	}
+
+	#screen-contact .subtitle {
+		font-size: 1.1rem;
+		margin-bottom: 40px;
+		max-width: 900px;
+		margin-left: auto;
+		margin-right: auto;
+		line-height: 1.6;
+	}
+
+	/* Form Layout - Two Column for Desktop */
+	.form-layout {
+		display: grid;
+		grid-template-columns: 1.2fr 1fr;
+		gap: 40px;
+		margin: 45px 0;
+		max-width: 1100px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	/* Form Section - Desktop */
+	.form-section {
+		padding: 40px 35px;
+		border-radius: 14px;
+	}
+
+	.form-section h3 {
+		font-size: 1.5rem;
+		margin-bottom: 30px;
+		text-align: left;
+	}
+
+	/* Form Inputs - Desktop */
+	#quote-form input,
+	#quote-form textarea {
+		padding: 15px 18px;
+		margin-bottom: 20px;
+		font-size: 1.05rem;
+		transition: all 0.3s ease;
+	}
+
+	#quote-form input:focus,
+	#quote-form textarea:focus {
+		outline: none;
+		box-shadow: 0 0 0 3px rgba(45, 94, 94, 0.15);
+	}
+
+	#quote-form textarea {
+		min-height: 110px;
+	}
+
+	/* Address Row - Desktop */
+	.address-row {
+		grid-template-columns: 2fr 1fr 1fr;
+		gap: 12px;
+		margin-bottom: 20px;
+	}
+
+	.address-row input {
+		padding: 15px 14px;
+		font-size: 1.05rem;
+	}
+
+	/* Timeline Label - Desktop */
+	.timeline-label {
+		font-size: 1rem;
+		margin-bottom: 12px;
+	}
+
+	/* What Happens Next - Desktop */
+	.what-happens-next {
+		font-size: 0.95rem;
+		margin-top: 28px;
+		padding-top: 28px;
+		line-height: 1.6;
+	}
+
+	.what-happens-next h4 {
+		font-size: 1.05rem;
+		margin-bottom: 12px;
+	}
+
+	/* Summary Section - Desktop */
+	.summary-section {
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+	}
+
+	/* Price Summary - Desktop */
+	.price-summary {
+		/* background: linear-gradient(135deg, #5e8a8a 0%, #4a7070 100%);
+		padding: 35px 30px; */
+		/* border-radius: 14px;
+		box-shadow: 0 8px 30px rgba(94, 138, 138, 0.2); */
+
+		max-width: 100%;
+		padding: 30px;
+		border-radius: 14px;
+		background: linear-gradient(135deg, #5e8a8a 0%, #4a7070 100%);
+		box-shadow: 0 8px 30px rgba(94, 138, 138, 0.2);
+	}
+
+	.price-summary h3 {
+		font-size: 1.3rem;
+	}
+
+	.price-summary p {
+		font-size: 0.9rem;
+		max-width: 600px;
+		margin: 0 auto;
+		line-height: 1.5;
+		opacity: 0.95;
+	}
+
+	p.final-price-range {
+		font-size: 2.8rem;
+		margin-bottom: 15px;
+		font-weight: 700;
+		letter-spacing: -1px;
+	}
+
+	/* Contact Form Guarantees - Desktop (horizontal layout) */
+	.contact-guarantees {
+		flex-direction: column;
+		justify-content: flex-start;
+		gap: 15px;
+		margin-top: 30px;
+		padding-top: 0;
+	}
+
+	.guarantee-badge {
+		font-size: 1rem;
+		padding: 0;
+		justify-content: flex-start;
+	}
+
+	.guarantee-badge .icon {
+		font-size: 2.5rem;
+		padding-left: 42px;
+	}
+
+	/* Buttons - Desktop */
+	#screen-contact .button-group {
+		max-width: 900px;
+		margin: 50px auto 0;
+		flex-direction: row;
+		gap: 25px;
+		justify-content: space-between;
+	}
+
+	#screen-contact .cta-button {
+		font-size: 1.2rem;
+		padding: 20px 45px;
+		border-radius: 50px;
+		transition: all 0.3s ease;
+	}
+
+	#screen-contact .cta-button:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 10px 30px rgba(45, 94, 94, 0.3);
+	}
+
+	#screen-contact .back-button {
+		font-size: 1.05rem;
+		padding: 18px 35px;
+		transition: all 0.3s ease;
+	}
+
+	#screen-contact .back-button:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 5px 15px rgba(45, 94, 94, 0.2);
+	}
+
+	/* Thank You Screen - Desktop */
+	.thank-you-content {
+		max-width: 900px;
+		padding: 50px 45px;
+		border-radius: 14px;
+		box-shadow: 0 8px 35px rgba(0, 0, 0, 0.12);
+	}
+
+	.success-icon {
+		width: 80px;
+		height: 80px;
+		margin-bottom: 35px;
+		font-size: 2.5rem;
+		box-shadow: 0 6px 20px rgba(94, 138, 138, 0.35);
+	}
+
+	.thank-you-content h1 {
+		font-size: 2.5rem;
+		margin-bottom: 35px;
+		line-height: 1.3;
+	}
+
+	.quote-summary-card {
+		padding: 30px 35px;
+		margin-bottom: 35px;
+		border-radius: 12px;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+	}
+
+	.quote-summary-card h3 {
+		font-size: 1.2rem;
+		margin-bottom: 14px;
+	}
+
+	.summary-price-range {
+		font-size: 2.5rem;
+		margin-bottom: 12px;
+		letter-spacing: -1px;
+	}
+
+	.summary-details {
+		font-size: 1.05rem;
+	}
+
+	.confirmation {
+		font-size: 1.15rem;
+		margin-bottom: 40px;
+		line-height: 1.7;
+	}
+
+	.next-steps {
+		padding: 35px 32px;
+		margin-bottom: 35px;
+		border-radius: 12px;
+	}
+
+	.next-steps h3 {
+		font-size: 1.4rem;
+		margin-bottom: 20px;
+	}
+
+	.timeline-highlight {
+		font-size: 1.1rem;
+		margin-bottom: 20px;
+	}
+
+	.next-steps ul {
+		margin-bottom: 25px;
+	}
+
+	.next-steps li {
+		padding: 12px 0;
+		padding-left: 40px;
+		font-size: 1.05rem;
+		line-height: 1.6;
+	}
+
+	.next-steps li:before {
+		font-size: 1.5rem;
+		left: 12px;
+	}
+
+	.consultation-details {
+		font-size: 1rem;
+		line-height: 1.7;
+	}
+
+	.in-meantime {
+		padding: 30px;
+		margin-bottom: 35px;
+		border-radius: 12px;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+	}
+
+	.in-meantime h3 {
+		font-size: 1.3rem;
+		margin-bottom: 22px;
+	}
+
+	.resource-links {
+		gap: 16px;
+	}
+
+	.resource-link {
+		padding: 16px 20px;
+		border-radius: 10px;
+		transition: all 0.3s ease;
+	}
+
+	.resource-link:hover {
+		transform: translateX(8px);
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+	}
+
+	.resource-icon {
+		font-size: 1.5rem;
+	}
+
+	.resource-text {
+		font-size: 1.05rem;
+	}
+
+	.closing-message {
+		font-size: 1.15rem;
+		margin-bottom: 35px;
+	}
+
+	.contact-box {
+		padding: 28px 32px;
+		border-radius: 12px;
+	}
+
+	.contact-box p {
+		font-size: 1.1rem;
+	}
+
+	.contact-box strong {
+		font-size: 1.2rem;
 	}
 }
 
