@@ -256,8 +256,6 @@ body {
 	flex-direction: column;
 	gap: var(--space-4);
 	margin-top: var(--space-10);
-	padding-top: var(--space-8);
-	border-top: 1px solid var(--color-border-base);
 }
 
 .badge,
@@ -267,13 +265,13 @@ body {
 	justify-content: center;
 	gap: var(--space-3);
 	color: var(--color-text-primary);
-	font-size: var(--text-sm);
-	padding: var(--space-3);
+	font-size: var(--text-base);
+	font-weight: 600;
 }
 
 .badge .icon,
 .guarantee-badge .icon {
-	font-size: 1.3rem;
+	font-size: 2rem;
 }
 
 /* ==============================================
@@ -1208,7 +1206,6 @@ p.final-price-range {
 		justify-content: center;
 		gap: var(--space-5);
 		margin-top: var(--space-2);
-		padding-top: 30px;
 	}
 
 	.guarantee-badge {
@@ -1217,7 +1214,7 @@ p.final-price-range {
 	}
 
 	.guarantee-badge .icon {
-		font-size: 1.4rem;
+		font-size: 2rem;
 	}
 }
 
@@ -2111,7 +2108,6 @@ p.final-price-range {
 		justify-content: flex-start;
 		gap: var(--space-4);
 		margin-top: var(--space-2);
-		padding-top: 0;
 	}
 
 	.guarantee-badge {
